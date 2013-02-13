@@ -26,7 +26,7 @@ public class AccountLogger implements Logger {
 	private Logger logger;
 	private Marker marker;
 
-	public AccountLogger(Class clazz) {
+	public AccountLogger(Class<? extends Object> clazz) {
 		logger = LoggerFactory.getLogger(clazz);
 	}
 
@@ -34,7 +34,7 @@ public class AccountLogger implements Logger {
 		logger = LoggerFactory.getLogger(name);
 	}
 
-	public AccountLogger (Class clazz, String accountId) {
+	public AccountLogger (Class<? extends Object> clazz, String accountId) {
 		this(clazz);
 		marker = MarkerFactory.getMarker(accountId);
 	}
@@ -44,6 +44,7 @@ public class AccountLogger implements Logger {
 		marker = MarkerFactory.getMarker(accountId);
 	}
 
+	@SuppressWarnings("unused")
 	private AccountLogger() {
 
 	}
